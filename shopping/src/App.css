@@ -1,4 +1,108 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+/* Header css below */
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 20px;
+  border-bottom: 1px solid #0000001A;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center; 
+}
+.logo:hover {
+  cursor: pointer;
+}
+
+.logo-title {
+  margin-left: 1rem; 
+}
+
+
+.dropdown-content {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 20px;
+  width: 230px;
+  font-size: 1rem;
+  top: 70px;
+  right: 50px;
+  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+
+.dropdown-content::before {
+  content: "";
+  position: absolute;
+  top: -20px; 
+  left: 75%;
+  transform: translateX(-50%); 
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #ffffff transparent; 
+}
+
+
+.dropdown-list {
+  padding: 1.2rem 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 40px;
+}
+
+.dropdown-list:hover {
+  background-color: #0000001A;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+
+.dropdown-list:first-child {
+  border-top-left-radius: 20px; 
+  border-top-right-radius: 20px; 
+}
+
+.dropdown-list:nth-child(2) {
+  border-top: 1px solid #0000001A;
+  border-bottom: 1px solid #0000001A;
+}
+
+.dropdown-list:last-child {
+  border-bottom-left-radius: 20px; 
+  border-bottom-right-radius: 20px; 
+}
+
+.nav-icon {
+  padding-right: 7px;
+}
+
+
+
+
+/* Footer css below */
 
 .footer {
     position: fixed;
@@ -9,12 +113,11 @@
     color:#888888;
 
     text-align: center;
-    font-family: Inter;
     font-size: 12px;
     font-weight: 400;
-    /* line-height: 11px;  */
-    letter-spacing: 0em;
+    line-height: 20px;  
     
-    padding: 15px;
+    padding: 13px;
     border-top: 1px solid #0000001A;
 }
+

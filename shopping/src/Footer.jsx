@@ -4,8 +4,8 @@ export default function Footer() {
             <div className="container">
                 
                 <span className="text-muted">
-                    개인정보처리방침 | 이용약관<br />
-                    All Rights Reserved @ Codestates
+                    개인정보 처리방침 | 이용약관<br />
+                    All rights reserved @ Codestates
                 </span>
             </div>
         </footer>
