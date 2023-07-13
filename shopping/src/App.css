@@ -17,6 +17,7 @@
   padding: 20px;
   border-bottom: 1px solid #0000001A;
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.2);
+  z-index: 3;
 }
 
 .header-container {
@@ -73,17 +74,6 @@
   padding-left: 40px;
 }
 
-.dropdown-list:hover {
-  background-color: #0000001A;
-  cursor: pointer;
-  transition: 0.1s;
-}
-
-
-.dropdown-list:first-child {
-  border-top-left-radius: 20px; 
-  border-top-right-radius: 20px; 
-}
 
 .dropdown-list:nth-child(2) {
   border-top: 1px solid #0000001A;
@@ -95,9 +85,126 @@
   border-bottom-right-radius: 20px; 
 }
 
+.dropdown-list:nth-child(2):hover,
+.dropdown-list:last-child:hover {
+  background-color: #0000001A;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+
+
 .nav-icon {
   padding-right: 7px;
 }
+
+.custom-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+
+/* Main css below */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2rem 0rem;
+}
+
+.main-container, .filters, .products {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+
+}
+
+.main-title {
+  align-self: flex-start;
+  font-size: 2rem;
+  font-weight: bolder;
+  padding: 0.7rem 8rem;
+  
+}
+
+
+.products {
+  flex-wrap: wrap;
+}
+
+.Product-container,
+.Category-container,
+.Exhibition-container,
+.Brand-container {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+  padding: 0 1rem;
+  /* min-height: 350px; */
+}
+
+.product-title {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  /* margin-bottom: 0.5rem; */
+}
+
+.discount-percentage {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: rgb(70, 60, 172);
+
+}
+
+.product-img {
+  width: 370px;
+  height: 280px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5%;
+  
+}
+
+
+.image-container {
+  /* position: relative;
+  display: inline-block; */
+
+  display: flex;
+  position: relative;
+}
+
+.bookmark-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 2;
+  /* Add any additional styles you need for the bookmark button */
+}
+
+.star-icon {
+  font-size: 40px;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.full {
+  color: #f5c518;
+}
+
+.empty {
+  color: rgb(217, 214, 214);
+}
+
+
+
 
 
 
@@ -105,7 +212,7 @@
 /* Footer css below */
 
 .footer {
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     bottom: 0;
     width: 100%;
