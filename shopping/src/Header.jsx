@@ -38,14 +38,14 @@ export default function Header() {
         <div className="header-container">
           <div className="logo">
             <Link to ='/' className="custom-link">
-            <img src="logo.png" alt="logo" />
+            <img src="./logo.png" alt="logo" />
             <span className="logo-title">COZ Shopping</span>
             </Link>
           </div>
           
           <div className="nav">
           <img
-            src="nav.png"
+            src="./nav.png"
             alt="nav"
             onClick={toggleDropdown}
             ref={imgRef}
@@ -55,13 +55,13 @@ export default function Header() {
               <div className='dropdown-list'>최유리님, 안녕하세요!</div>
               <Link to = '/products/list' className="custom-link">
                 <div className='dropdown-list'>
-                  <img src="item.png" alt="item" className='nav-icon' />
+                  <img src="./item.png" alt="item" className='nav-icon' />
                   <span>상품리스트 페이지</span>
                 </div>
               </Link> 
               <Link to ='/bookmark' className="custom-link">
                 <div className='dropdown-list'>
-                  <img src="bookmark.png" alt="bookmark" className='nav-icon' />
+                  <img src="./bookmark.png" alt="bookmark" className='nav-icon' />
                   <span>북마크페이지</span>
                 </div>
               </Link>  

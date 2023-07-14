@@ -23,19 +23,28 @@ export default function Bookmark({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+
   }, [fetchProducts]);
   
+//   const filters = {
+//     전체: 'all',
+//     상품: 'Product',
+//     카테고리: 'Category',
+//     기획전: 'Exhibition',
+//     브랜드: 'Brand',
+//   };
+
   const filters = {
-    전체: 'all',
-    상품: 'Product',
-    카테고리: 'Category',
-    기획전: 'Exhibition',
-    브랜드: 'Brand',
+    전체: { type : 'all', img: "../이미지.jpg"},
+    상품: { type : 'Product', img: "../이미지2.jpg"},
+    카테고리: { type : 'Category', img: "../이미지3.jpg"},
+    기획전: { type : 'Exhibition', img: "../이미지4.jpg"},
+    브랜드: { type : 'Brand', img: "../이미지5.jpg"}
   };
 
   const filteredProducts = selectedFilter === '전체'
     ? bookmarkedProducts
-    : bookmarkedProducts.filter(product => product.type === filters[selectedFilter]);
+    : bookmarkedProducts.filter(product => product.type === filters[selectedFilter].type);
 
 
     return (
@@ -46,7 +55,9 @@ export default function Bookmark({
           <div
             key={filter}
             onClick={() => setSelectedFilter(filter)}
+            className={`filter-container ${selectedFilter === filter ? 'active' : ''}`}
           >
+            <img src={filters[filter].img} alt={filters[filter].type} />
             {filter}
           </div>
         ))}
