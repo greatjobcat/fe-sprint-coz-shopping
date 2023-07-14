@@ -14,6 +14,8 @@ function App() {
   const [page, setPage] = useState(1);
   const [bookmarkedProducts, setBookmarkedProducts] = useState([]);
 
+
+
   const fetchProducts = () => {
     axios
       .get(
@@ -23,7 +25,9 @@ function App() {
         const newProducts = response.data;
 
         const filteredProducts = newProducts.filter((newProduct) => {
-          return !products.some((existingProduct) => existingProduct.id === newProduct.id);
+          return !products.some(
+            (existingProduct) => existingProduct.id === newProduct.id
+          );
         });
         setProducts((prevProducts) => [...prevProducts, ...filteredProducts]);
         setPage((prevPage) => prevPage + 1);
@@ -32,16 +36,18 @@ function App() {
         console.error(error);
       });
   };
+  
 
   useEffect(() => {
     fetchProducts();
   }, []);
 
+  
 
   const toggleBookmark = (product) => {
     setBookmarkedProducts((prevBookmarkedProducts) => {
       const isProductBookmarked = isBookmarked(product);
-  
+
       if (isProductBookmarked) {
         return prevBookmarkedProducts.filter((p) => p.id !== product.id);
       } else {
@@ -49,11 +55,10 @@ function App() {
       }
     });
   };
-  
+
   const isBookmarked = (product) => {
     return bookmarkedProducts.some((p) => p.id === product.id);
   };
-
 
   return (
     <div className="App">
@@ -91,7 +96,6 @@ function App() {
                 onBookmarkToggle={toggleBookmark}
                 bookmarkedProducts={bookmarkedProducts}
                 fetchProducts={fetchProducts}
-
               />
             }
           />

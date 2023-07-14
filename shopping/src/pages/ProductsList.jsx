@@ -4,14 +4,32 @@ import Item from '../Item';
 function ProductList({products, fetchProducts, isBookmarked, onBookmarkToggle}) {
   const [selectedFilter, setSelectedFilter] = useState('전체');
 
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     if (
+  //        window.innerHeight + document.documentElement.scrollTop ===
+  //        document.documentElement.offsetHeight
+  //       
+  //     ) {
+  //       fetchProducts();
+  //     }
+  //   };
+
+  //   window.addEventListener('scroll', handleScroll);
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, [fetchProducts]);
+
+
   useEffect(() => {
     const handleScroll = () => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop ===
-        document.documentElement.offsetHeight
-      ) {
-        fetchProducts();
-      }
+      const isBottom =
+      window.innerHeight + window.scrollY >= document.body.offsetHeight;
+
+    if (isBottom) {
+       fetchProducts();
+    }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -19,18 +37,20 @@ function ProductList({products, fetchProducts, isBookmarked, onBookmarkToggle}) 
       window.removeEventListener('scroll', handleScroll);
     };
   }, [fetchProducts]);
+
+  
   
   const filters = {
-    전체: 'all',
-    상품: 'Product',
-    카테고리: 'Category',
-    기획전: 'Exhibition',
-    브랜드: 'Brand',
+    전체: { type : 'all', img: "../이미지.jpg"},
+    상품: { type : 'Product', img: "../이미지2.jpg"},
+    카테고리: { type : 'Category', img: "../이미지3.jpg"},
+    기획전: { type : 'Exhibition', img: "../이미지4.jpg"},
+    브랜드: { type : 'Brand', img: "../이미지5.jpg"}
   };
 
   const filteredProducts = selectedFilter === '전체'
     ? products
-    : products.filter(product => product.type === filters[selectedFilter]);
+    : products.filter(product => product.type === filters[selectedFilter].type);
 
   return (
     <div className="product-list-page">
@@ -40,8 +60,10 @@ function ProductList({products, fetchProducts, isBookmarked, onBookmarkToggle}) 
           <div
             key={filter}
             onClick={() => setSelectedFilter(filter)}
+            className={`filter-container ${selectedFilter === filter ? 'active' : ''}`}
           >
-            {filter}
+            <img src={filters[filter].img} alt={filters[filter].type} />
+            <span>{filter}</span>
           </div>
         ))}
       </div>

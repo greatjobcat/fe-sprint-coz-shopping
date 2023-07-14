@@ -174,9 +174,6 @@
 
 
 .image-container {
-  /* position: relative;
-  display: inline-block; */
-
   display: flex;
   position: relative;
 }
@@ -186,7 +183,6 @@
   bottom: 10px;
   right: 10px;
   z-index: 2;
-  /* Add any additional styles you need for the bookmark button */
 }
 
 .star-icon {
@@ -204,27 +200,86 @@
 }
 
 
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem 2rem 1rem;
+  font-size: 1.2rem;
+  
+}
 
+.filter-container.active {
+  cursor: pointer;
+  font-weight: bold;
+  color: rgb(70, 60, 172);
+  text-decoration: underline;
+}
 
+/* Modal css below */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+}
 
+.modal-content {
+  position: relative;
+}
+
+.modal-product-img {
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  width: 900px;
+  height: 600px;
+}
+
+.close {
+  position: absolute;
+  top: -5px;
+  right: 26px;
+  font-size: 80px;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.modal-bookmark-button {
+  position: absolute;
+  bottom: 28px;
+  left: 30px;
+  z-index: 5;
+  font-size: 40px;
+  transition: color 0.3s ease;
+  cursor: pointer;
+
+}
 
 
 /* Footer css below */
 
 .footer {
-    /* position: fixed; */
     left: 0;
-    bottom: 0;
     width: 100%;
+    height: 20px;
     background-color: #ffffff;
     color:#888888;
-
     text-align: center;
     font-size: 12px;
     font-weight: 400;
     line-height: 20px;  
-    
-    padding: 13px;
     border-top: 1px solid #0000001A;
 }
 
+.footer-container {
+  padding: 1rem;
+}
